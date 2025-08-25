@@ -1,0 +1,2 @@
+# stereo_vision_processor
+这是一个用于处理MODD2视频数据集中立体图像对的Python工具，支持图像可视化、视差图计算和OpenCV处理。
