@@ -64,7 +64,10 @@ def main():
     if success:
         print("\n测试成功！处理器可以正常使用。")
         print("\n使用示例:")
-        print(f"python3 stereo_vision_processor.py kope67-00-00004500-00005050 --max-frames 3")
+        opened_path = input("请输入要打开的文件夹路径:")#kope71-01-00011520-00011800/frames/00011520L.jpg
+        data_dir = opened_path.split("/")[0]
+        start_frame = opened_path.split("/")[2].split("L")[0]
+        print(f"python3 stereo_vision_processor.py {data_dir} --start-frame {start_frame} --max-frames 1 --save")
     else:
         print("\n测试失败！请检查错误信息。")
         sys.exit(1)
