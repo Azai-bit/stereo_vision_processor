@@ -3,25 +3,19 @@
 这是一个用于处理[MODD2](https://box.vicos.si/borja/viamaro/index.html)视频数据集中立体图像对的Python工具，支持图像可视化、视差图计算和OpenCV处理。
 ![example](/save_pic/out.png "vision_processor")
 
-## 功能特性
+## 使用方法
 
-- **标定解析与校正**：使用 OpenCV FileStorage 解析 `calibration.yaml`、`stereo-method.yaml`，执行 `stereoRectify + remap` 去畸变与双目校正
-- **视差图**：基于 OpenCV StereoBM 实时计算
-- **IMU 可视化**：读取 `imu/XXXXXXXX.txt` 前三行三轴数据，叠加在图像上或以柱状图显示
-- **无障碍方向估计**：在视差图中间带按列统计分位数，选取“无障碍方向”，在左图叠加竖线与箭头
-- **批量处理与过滤**：支持帧范围过滤与最大处理帧数限制
-- **一键保存当前可视化**：通过 `--save` 将当前可视化保存为 `save_pic/out.png`
+### 克隆项目
+```bash
+git clone https://github.com/Azai-bit/stereo_vision_processor.git
+```
 
-## 安装依赖
-
+### 安装依赖
 ```bash
 pip install -r requirements.txt
 ```
 
-## 使用方法
-
 ### 基本用法
-
 ```bash
 python3 stereo_vision_processor.py kope67-00-00004500-00005050 \
   --start-frame 4500 \
@@ -29,8 +23,7 @@ python3 stereo_vision_processor.py kope67-00-00004500-00005050 \
   --max-frames 5 \
   --save
 ```
-或者运行test_processor.py，输入要查看的图片路径，自动生成运行脚本
-
+或运行test_processor.py，输入要查看的图片路径，自动生成运行脚本
 
 ### 命令行参数
 
@@ -74,9 +67,9 @@ data_directory/
 3. 处理大量帧时建议使用 `--max-frames` 限制
 4. 视差图由 StereoBM 计算，默认像素视差扩大 16 倍（已在内部缩放处理）
 5. IMU 文件若缺失或格式不符，会自动忽略
+6. 若标定文件无法解析，将回退到默认参数（仍可运行但无精准校正）
 
 ## 故障排除
 - 如果出现“无法加载图像”错误，检查图像文件路径和权限
-- 若标定文件无法解析，将回退到默认参数（仍可运行但无精准校正）
 - 确保安装了所有必需的 Python 包
 
