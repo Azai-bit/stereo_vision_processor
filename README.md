@@ -1,6 +1,7 @@
 # 立体视觉图像处理工具
 
-这是一个用于处理[MODD2](https://box.vicos.si/borja/viamaro/index.html)视频数据集中立体图像对的Python工具，支持图像可视化、视差图计算和OpenCV处理。
+这是一个用于处理多模态数据集合的图像处理可视化工具，支持图像可视化、视差图计算和OpenCV处理。
+参考数据集[MODD2](https://box.vicos.si/borja/viamaro/index.html)。
 ![example](/save_pic/out.png "vision_processor")
 
 ## 使用方法
